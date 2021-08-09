@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure React Learnings</title>
+</head>
+<body>
+    <div id="root">React Not Render</div>
+   
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+   
+     <script>
+          const person = props =>{
+              return React.createElement("div",{},[
+                  React.createElement("h1",{},props.name),
+                  React.createElement("p",{},props.occupation)            
+                ])
+          }
+
+          class App extends React.Component{
+              render() {
+                return React.createElement("div",{},
+                [React.createElement("h1",{},"React is Rendered!!!"),
+                 React.createElement(person,{name:'praveen',occupation:'developer'}),
+                 React.createElement(person,{name:'anjana',occupation:'developer'}),
+                 React.createElement(person,{name:'arun',occupation:'developer'})
+            ]
+             ); 
+              }
+          }
+
+
+        ReactDOM.render(React.createElement(App),document.getElementById("root"));
+     </script>
+</body>
+</html>
